@@ -358,6 +358,31 @@ void display_floor(char filename[50], int floor)
     fclose(file);
     Sleep(5000);
 }
+
+dispaly_model(char filename[50], char model[20])
+{
+    FILE *file = fopen(filename, "r");
+
+    Vehicle temp;
+    int found = 0;
+
+    while (fscanf(file, "%[^,],%[^,],%d,%d,%[^,],%d\n", temp.license_Plate, temp.model, &temp.Time_of_use, &temp.Checked, temp.Parking_space, &temp.type) == 6)
+    {
+        if (strcmp(temp.model , model))
+        {
+            found = 1;
+            printf(MAGENTA "License Plate: %s\t | Model: %s\t | Time of Use: %d\t | Parking Space: %s\n" RESET,
+                temp.license_Plate, temp.model, temp.Time_of_use, temp.Parking_space);
+        }
+    }
+
+    if(!found)
+    {
+        printf(RED "No vehicle found." RESET);
+    }
+    fclose(file);
+    Sleep(5000);
+}
 int login()
 {
     char UserName[MAX_USERNAME], Password[MAX_PASSWORD];
