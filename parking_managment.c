@@ -458,7 +458,8 @@ void Main_Menu()
         printf("4. History List\n");
         printf("5. display type\n");
         printf("6. display floor\n");
-        printf("7. Log out\n");
+        printf("7. display model\n");
+        printf("8. Log out\n");
         printf("if you want to close application press (ctrl + c)\n");
         printf("Please enter your choice: " RESET);
         scanf("%d", &choice);
@@ -503,6 +504,12 @@ void Main_Menu()
             display_floor(fileName, floor);
             break;
         case 7:
+            printf(CYAN "Enter model:\n" RESET);
+            char model[20];
+            scanf("%s", model);
+            dispaly_model(fileName, model);
+            break;
+        case 8:
             printf(RED "Logging out...\n" RESET);
             return;
         default:
