@@ -383,6 +383,9 @@ dispaly_model(char filename[50], char model[20])
     fclose(file);
     Sleep(5000);
 }
+
+display_parkingSpace_of_perFloors(char filename, int space);
+
 int login()
 {
     char UserName[MAX_USERNAME], Password[MAX_PASSWORD];
