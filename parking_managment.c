@@ -537,6 +537,7 @@ void Main_Menu()
             printf(CYAN "Enter space:\n" RESET);
             int space;
             scanf("%d", &space);
+            display_parkingSpace_of_perFloors(fileName, space);
             break;
         case 9:
             printf(RED "Logging out...\n" RESET);
