@@ -503,7 +503,7 @@ void Main_Menu()
             display_floor(fileName, floor);
             break;
         case 7:
-            printf(RED "Logging out...\n" RESET);
+            printf(GREEN "Logging out...\n" RESET);
             return;
         default:
             printf(RED "Invalid choice.\n" RESET);
