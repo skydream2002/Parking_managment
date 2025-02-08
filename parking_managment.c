@@ -459,7 +459,8 @@ void Main_Menu()
         printf("5. display type\n");
         printf("6. display floor\n");
         printf("7. display model\n");
-        printf("8. Log out\n");
+        printf("8. display spaces\n");
+        printf("9. Log out\n");
         printf("if you want to close application press (ctrl + c)\n");
         printf("Please enter your choice: " RESET);
         scanf("%d", &choice);
@@ -510,6 +511,11 @@ void Main_Menu()
             dispaly_model(fileName, model);
             break;
         case 8:
+            printf(CYAN "Enter space:\n" RESET);
+            int space;
+            scanf("%d", &space);
+            break;
+        case 9:
             printf(RED "Logging out...\n" RESET);
             return;
         default:
