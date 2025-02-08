@@ -384,7 +384,30 @@ dispaly_model(char filename[50], char model[20])
     Sleep(5000);
 }
 
-display_parkingSpace_of_perFloors(char filename, int space);
+display_parkingSpace_of_perFloors(char filename, int space)
+{
+    FILE *file = fopen(filename, "r");
+
+    Vehicle temp;
+    int found = 0;
+
+    while (fscanf(file, "%[^,],%[^,],%d,%d,%[^,],%d\n", temp.license_Plate, temp.model, &temp.Time_of_use, &temp.Checked, temp.Parking_space, &temp.type) == 6)
+    {
+        if (temp.Parking_space[4] - '0' == space && temp.Checked == 1)
+        {
+            found = 1;
+            printf(MAGENTA "License Plate: %s\t | Model: %s\t | Time of Use: %d\t | Parking Space: %s\n" RESET,
+                temp.license_Plate, temp.model, temp.Time_of_use, temp.Parking_space);
+        }
+    }
+
+    if (!found)
+    {
+        printf(RED "No vehicle found." RESET);
+    }
+    fclose(file);
+    Sleep(5000);
+}
 
 int login()
 {
